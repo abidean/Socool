@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap Selecte</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+    <h1>Account REST client</h1>
+    <div class="jumbotron">
+      <h2>My Account</h2>
+    </div>
+    <table class="table table-striped table-condensed" id="mytemplate">
+      <thead>
+      <tr>
+        <th>ลำดับที่</th>
+        <th>รายการ</th>
+        <th>จำนวนเงิน</th>
+        <th>ปุ่มคำสั่ง</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      	<td>1</td>
+      	<td><a href="#" id="description">ซื้อกับข้าว</a></td>
+      	<td>500</td>
+      	<td><a id = "1" class="edit btn btn-default"><span class="glyphicon glyphicon-pencil"></span> แก้ไขรายการ</a></td>
+      </tr>
+      </tbody>
+    </table>
+
+<select class="selectpicker">
+  <option>Mustard</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select>
+
+<div class="container">
+  <h2>Form control: select</h2>
+  <p>The form below contains two dropdown menus (select lists):</p>
+  <form>
+    <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+      <br>
+      <label for="sel2">Mutiple select list (hold shift to select more than one):</label>
+      <select multiple class="form-control" id="sel2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+  </form>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+    <script>
+    	$('.selectpicker').selectpicker() ;
+    	$.fn.editable.defaults.mode = 'inline';
+    	$('#description').editable({
+    		type: 'text',
+    		pk: 7,
+    		name: 'description',
+    		url: '/api/account',
+    		title: 'กรอกข้อมูลรายการจ่าย',
+        	ajaxOptions: {
+        		type: 'put',
+        		datatType: 'json'
+        	}
+    	});
+    </script>
+
+</div>    
+</body>
+</html>

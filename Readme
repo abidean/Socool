@@ -1,0 +1,21 @@
+pip install Flask
+pip install Flask_bootstrap (optional)
+pip install Flask_sqlalchemy
+pip install Flask_restless
+pip install Psycopg2
+
+load styles
+	bootstrap.min.css
+	datetimepicker.css
+	bootstrap-editable.css
+load script
+	jquery.min.js
+	bootstrap.min.js
+	datetimepicker.full.js
+	bootstrap-editable.min.js
+	
+	<link rel ="stylesheet" href="{{url_for('.static', filename='css/jquery.datetimepicker.css')}}">
+
+<script src="{{url_for('.static', filename='js/jquery.datetimepicker.full.js')}}"></script>
+
+location.reload(true) ;
